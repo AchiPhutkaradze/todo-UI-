@@ -1,0 +1,17 @@
+.main {
+  background-image: url(../../assets/flowers.svg);
+  font-size: 30px;
+  color: white;
+  width: 430px;
+  height: 230px;
+  background-repeat: no-repeat;
+  padding: 0 20px 20px 0;
+  font-family: "Russo One", sans-serif;
+}
+.time {
+  height: 189px;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: flex-end;
+}
