@@ -1,14 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap");
 .container {
   min-width: 430px;
-  height: 100px;
-  border-radius: 10px;
   background: #fff;
   padding: 23px 28px 0 29px;
   display: flex;
   flex-direction: column;
   gap: 50px;
   font-family: "Inter", sans-serif;
+  padding: 23px 28px 79px 29px;
 }
 .input-div {
   display: flex;
@@ -24,21 +23,30 @@
 .add {
   border-radius: 5px;
   background: #20eeb0;
+  display: flex;
   width: 88px;
-  height: 49px;
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+  gap: 11px;
 }
 .inp-value {
   font-size: 20px;
 }
+.child {
+  display: flex;
+  gap: 24px;
+  flex-direction: column;
+}
 .list {
-  min-width: 373px;
-  background-color: aquamarine;
   display: flex;
   height: 44px;
   justify-content: space-between;
+  align-items: center;
 }
 .chkb-delete {
   display: flex;
+  gap: 14px;
 }
 .time {
   height: 44px;
@@ -54,4 +62,36 @@
 .day-time {
   display: flex;
   gap: 8px;
+}
+
+label.circle::before {
+  content: "";
+  width: 24px;
+  height: 24px;
+  border: 2px solid var(--Almost-White, #20eeb0);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+}
+
+input[type="checkbox"]:checked + label.circle::before {
+  content: url(../assets/icon-circle.svg);
+  background-color: #a4ffaf;
+  display: flex;
+  justify-content: center;
+}
+
+input[type="checkbox"].icon-circle {
+  cursor: pointer;
+  opacity: 0;
+  position: absolute;
+  width: 28px;
+  height: 28px;
+}
+
+.delete {
+  cursor: pointer;
+}
+.delete-btn {
+  cursor: pointer;
 }

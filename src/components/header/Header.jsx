@@ -9,7 +9,9 @@ export default function Header(props) {
     if (m.toString().length == 1) {
       m = "0" + m;
     }
-
+    if (h == 0) {
+      h = "0" + h;
+    }
     const hm = `${h} : ${m} `;
     props.setTime(hm);
   };
@@ -17,6 +19,7 @@ export default function Header(props) {
     foo();
     setInterval(foo, 60000);
   }, []);
+
   const daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   const dayOfWeek = daysOfWeek[props.currentTimeState.getDay()];
   const day = props.currentTimeState.getDate();

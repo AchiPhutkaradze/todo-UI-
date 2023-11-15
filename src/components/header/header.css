@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Russo+One&display=swap");
 .main {
   background-image: url(../../assets/flowers.svg);
   font-size: 30px;
@@ -7,6 +8,8 @@
   background-repeat: no-repeat;
   padding: 0 20px 20px 0;
   font-family: "Russo One", sans-serif;
+  background-color: white;
+  font-family: "Russo One";
 }
 .time {
   height: 189px;

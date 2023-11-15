@@ -14,13 +14,11 @@ function App() {
           time={time}
           setTime={setTime}
           currentTimeState={currentTimeState}
-          setCurrentTimeState={setCurrentTimeState}
         />
         <Container
           time={time}
           setTime={setTime}
           currentTimeState={currentTimeState}
-          setCurrentTimeState={setCurrentTimeState}
         />
       </div>
     </>
