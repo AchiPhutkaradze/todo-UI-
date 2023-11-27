@@ -41,6 +41,7 @@ function Container(props) {
           className="note"
           value={value}
           onChange={(e) => setValue(e.target.value)}
+          placeholder="Note"
         />
 
         <button type="submit" className="add" onClick={btn}>
