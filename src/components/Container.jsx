@@ -8,10 +8,9 @@ function Container(props) {
   const [allTodo, setAllTodo] = useState(
     localStorage.getItem("todo") ? JSON.parse(localStorage.getItem("todo")) : []
   );
-
+  console.log(value);
   const daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   const dayOfWeek = daysOfWeek[props.currentTimeState.getDay()];
-
   const btn = () => {
     setAllTodo([
       ...allTodo,
@@ -23,9 +22,7 @@ function Container(props) {
     ]);
     setValue("");
   };
-  const user = {
-    ...allTodo,
-  };
+
   useEffect(() => {
     localStorage.setItem("todo", JSON.stringify(allTodo));
   }, [allTodo]);
@@ -53,40 +50,42 @@ function Container(props) {
       <form className="texts">
         <div className="child">
           {allTodo.map((item, index) => {
-            return (
-              <div className="list" key={index}>
-                <div className="time-text">
-                  <span className="inp-value" key={index}>
-                    {item.text}
-                  </span>
-                  <div className="day-time">
-                    <div className="item-day">{item.day}</div>
-                    at
-                    <div className="item-time">
-                      {" "}
-                      {item.time > 12 < 0 ? `${item.time}AM` : `${item.time}PM`}
+            if (item.text != "") {
+              return (
+                <div className="list" key={index}>
+                  <div className="time-text">
+                    <span className="inp-value" key={index}>
+                      {item.text}
+                    </span>
+                    <div className="day-time">
+                      <div className="item-day">{item.day}</div>
+                      at
+                      <div className="item-time">
+                        {" "}
+                        {item.time > 12 < 0
+                          ? `${item.time}AM`
+                          : `${item.time}PM`}
+                      </div>
                     </div>
                   </div>
-                </div>
 
-                <div className="chkb-delete">
-                  <input type="checkbox" className="icon-circle" />
-                  <label className="circle"> </label>
-                  <button
-                    type="submit"
-                    className="delete-btn"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      deleteBtn(item);
-                    }}
-                  >
-                    <img src={Delete} />
-                  </button>
-                  {/* <img src={Delete} className="delete-icon" /> */}
-                  {/* </label> */}
+                  <div className="chkb-delete">
+                    <input type="checkbox" className="icon-circle" />
+                    <label className="circle"> </label>
+                    <button
+                      type="submit"
+                      className="delete-btn"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        deleteBtn(item);
+                      }}
+                    >
+                      <img src={Delete} />
+                    </button>
+                  </div>
                 </div>
-              </div>
-            );
+              );
+            }
           })}
         </div>
       </form>
