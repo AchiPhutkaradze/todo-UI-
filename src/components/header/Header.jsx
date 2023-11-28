@@ -26,8 +26,8 @@ export default function Header(props) {
   return (
     <div className="main">
       <div className="time">
-        {dayOfWeek}
-        {day}
+        {`${dayOfWeek}
+        ${day}`}
         <div className="clock">
           {props.time > 12 < 0 ? `${props.time}AM` : `${props.time}PM`}
         </div>

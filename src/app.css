@@ -8,7 +8,18 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: end;
   height: 100vh;
   background: #eee;
+}
+@media screen and (min-width: 1440px) {
+  body {
+    background-image: url(./assets/Todo.svg);
+    background-repeat: no-repeat;
+    background-position-y: center;
+    background-position-x: 306px;
+  }
+  .main-container {
+    margin-right: 280px;
+  }
 }
