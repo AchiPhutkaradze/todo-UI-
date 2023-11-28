@@ -9,8 +9,8 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: end;
-  height: 100vh;
   background: #eee;
+  padding: 50px;
 }
 @media screen and (min-width: 1440px) {
   body {
