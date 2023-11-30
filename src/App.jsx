@@ -15,11 +15,7 @@ function App() {
           setTime={setTime}
           currentTimeState={currentTimeState}
         />
-        <Container
-          time={time}
-          setTime={setTime}
-          currentTimeState={currentTimeState}
-        />
+        <Container time={time} />
       </div>
     </>
   );

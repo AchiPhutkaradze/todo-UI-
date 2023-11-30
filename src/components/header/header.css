@@ -17,4 +17,10 @@
   flex-direction: column;
   justify-content: end;
   align-items: flex-end;
+  color: #fff;
+  font-size: 20px;
+}
+.clock {
+  color: #fff;
+  font-size: 40px;
 }

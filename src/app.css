@@ -7,17 +7,21 @@
 body {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: end;
   background: #eee;
-  padding: 50px;
+  align-items: center;
+  justify-content: center;
+  padding-top: 162px;
 }
+
 @media screen and (min-width: 1440px) {
   body {
     background-image: url(./assets/Todo.svg);
     background-repeat: no-repeat;
     background-position-y: center;
     background-position-x: 306px;
+    padding: 122px 50px;
+    align-items: end;
   }
   .main-container {
     margin-right: 280px;

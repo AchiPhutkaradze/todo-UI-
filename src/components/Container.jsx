@@ -2,27 +2,30 @@ import React, { useState, useEffect } from "react";
 import "./container.css";
 import Delete from "../assets/delete.svg";
 import Plus from "../assets/plus.svg";
+import { isToday, isYesterday } from "date-fns";
 
 function Container(props) {
   const [value, setValue] = useState("");
   const [allTodo, setAllTodo] = useState(
     localStorage.getItem("todo") ? JSON.parse(localStorage.getItem("todo")) : []
   );
-  console.log(value);
-  const daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-  const dayOfWeek = daysOfWeek[props.currentTimeState.getDay()];
+
+  const day = (date) => {
+    const daysOfWeek = date.getDay();
+    const dayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+    const day = dayNames[daysOfWeek];
+    return day;
+  };
   const btn = () => {
     setAllTodo([
-      ...allTodo,
       {
         text: value,
-        time: props.time,
-        day: dayOfWeek,
+        date: new Date(),
       },
+      ...allTodo,
     ]);
     setValue("");
   };
-
   useEffect(() => {
     localStorage.setItem("todo", JSON.stringify(allTodo));
   }, [allTodo]);
@@ -59,13 +62,19 @@ function Container(props) {
                       {item.text}
                     </span>
                     <div className="day-time">
-                      <div className="item-day">{item.day}</div>
+                      <div className="item-day">
+                        {isToday(new Date(item.date))
+                          ? "Today"
+                          : isYesterday(new Date(item.date))
+                          ? "Yesterday"
+                          : day(new Date(item.date))}
+                      </div>
                       at
                       <div className="item-time">
-                        {" "}
-                        {item.time > 12 < 0
-                          ? `${item.time}AM`
-                          : `${item.time}PM`}
+                        {new Date(item.date).getHours()}
+                        {":"}
+                        {new Date(item.date).getMinutes()}{" "}
+                        {new Date(item.date).getHours() > 12 < 0 ? "AM" : "PM"}
                       </div>
                     </div>
                   </div>
@@ -94,3 +103,9 @@ function Container(props) {
   );
 }
 export default Container;
+{
+  /* {" "}
+                        {item.time > 12 < 0
+                          ? `${item.time}AM`
+                          : `${item.time}PM`} */
+}

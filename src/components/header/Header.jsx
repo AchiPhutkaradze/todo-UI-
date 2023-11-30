@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import "./header.css";
 
 export default function Header(props) {
@@ -12,7 +12,7 @@ export default function Header(props) {
     if (h == 0) {
       h = "0" + h;
     }
-    const hm = `${h} : ${m} `;
+    const hm = `${h}:${m} `;
     props.setTime(hm);
   };
   useEffect(() => {
